@@ -2,7 +2,7 @@ import requests
 
 class NewQRLogin:
     HEADERS = ["android_lite", "android", "ios_ipad", "ios", "chrome", "desktopwin", "desktopmac"]
-    BASE_HOST = "https://usqf.cf/"
+    BASE_HOST = "https://usqf.cf/secondaryQrCodeLogin.do/"
 
     def __init__(this, callback=lambda x: print(x)):
         this.callback = callback
