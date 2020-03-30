@@ -1,4 +1,4 @@
-# NEW LINE QR LOGIN [![Status](https://img.shields.io/website?down_message=OFFLINE&label=API&style=for-the-badge&up_message=ONLINE&url=https%3A%2F%2Fusqf.cf%2FsecondaryQrCodeLogin.do%2F)]()
+# NEW LINE QR LOGIN [![Status](https://img.shields.io/website?label=API&style=for-the-badge&url=https%3A%2F%2Fusqf.cf%2Fstatus%2FsecondaryQrCodeLogin)]()
 Generate Line's Cert/AuthToken by QRCode 
 
 Example
