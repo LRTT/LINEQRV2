@@ -31,21 +31,6 @@ class NewQRLogin:
             raise Exception(result["reason"])
         return result
 
-    def loginQR(this, header):
-        assert header in this.HEADERS
-        result = this.get(this.BASE_HOST + "login?headers=" + header)
-        if result["status"] != 200:
-            raise Exception(result["reason"])
-        this.callback("Login Url: %s" % (result["url"]))
-        result = this.get(this.BASE_HOST + result["callback"])
-        if result["status"] != 200:
-            raise Exception(result["reason"])
-        this.callback("Pin Code: %s" % (result["pincode"]))
-        result = this.get(this.BASE_HOST + result["callback"])
-        if result["status"] != 200:
-            raise Exception(result["reason"])
-        return result
-
     def loginQRWithWebPinCode(this, header, lang="en"):
         # SUPPORT LANGUAGE: [en, th, jp]
         assert header in this.HEADERS
