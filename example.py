@@ -5,8 +5,7 @@ newqr = NewQRLogin()
 print("Headers: %s" % (", ".join(newqr.HEADERS)))
 header = input("Header: ")
 
-method = newqr.loginWithQrCode
-token, cert = newqr.parseLogin(method(header))
+token, cert = newqr.loginWithQrCode(header)
 
 print("Access Token: " + token)
 print("Certificate: " + cert)
