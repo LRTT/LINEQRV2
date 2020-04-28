@@ -6,11 +6,11 @@ class NewQRLogin:
     HEADERS = {
         "android_lite": {
             "User-Agent": "LLA/2.12.0 SKR-H0 9",
-            "X-Line-Application": "ANDROIDLITE 2.12.0 Android OS 9;SECONDARY"
+            "X-Line-Application": "ANDROIDLITE\t2.12.0\tAndroid OS\t9;SECONDARY"
         },
         "android": {
-            "User-Agent": "Line/10.1.1",
-            "X-Line-Application": "ANDROID\t10.1.1\tAndroid OS\t5.1.1"
+            "User-Agent": "Line/10.6.2",
+            "X-Line-Application": "ANDROID\t10.6.2\tAndroid OS\t10"
         },
         "ios_ipad": {
             "User-Agent": "Line/10.1.1",
@@ -54,7 +54,7 @@ class NewQRLogin:
             if "pin" in res:
                 callback("Input PIN: %s" % (res["pin"]))
 
-        return res
+        return self.parseLogin(res)
 
     def loginQrCodeWithWebPinCode(self, header, certificate="", callback=lambda output: print(output)):
         assert header in self.HEADERS, "invaild header"
@@ -71,8 +71,10 @@ class NewQRLogin:
             if resp.status_code != 200:
                 raise Exception(res)
 
-        return res
+        return self.parseLogin(res)
 
 if __name__ == "__main__":
     qrv2 = NewQRLogin()
-    qrv2.loginQrCodeWithWebPinCode("android_lite")
+    token, cert = qrv2.loginQrCodeWithWebPinCode("android_lite")
+    print("Access Token: " + token)
+    print("Certificate: " + cert)
