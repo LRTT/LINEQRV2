@@ -11,7 +11,7 @@ from linepy import LINE
 
 newqr = NewQRLogin()
 
-print("Headers: %s" % (", ".join(newqr.HEADERS)))
+# Available headers: ['android_lite', 'android', 'ios_ipad', 'ios', 'chrome', 'desktopwin', 'desktopmac']
 header = input("Header: ")
 
 method = newqr.loginWithQrCode
