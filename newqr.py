@@ -26,6 +26,22 @@ class NewQRLogin:
 
         return res
 
+    def loginQrCodeWithWebPinCode(self, header, certificate="", callback=lambda output: print(output)):
+        resp = requests.post(self.API_URL + "/login?" + urllib.parse.urlencode({"header": header, "certificate": certificate}))
+        res = resp.json()
+        if resp.status_code != 200:
+            raise Exception(res)
+        callback("Pincode URL: %s" % (res["web"]))
+        callback("Login URL: %s" % (res["url"]))
+
+        while "token" not in res:
+            resp = requests.post(self.API_URL + res["callback"])
+            res = resp.json()
+            if resp.status_code != 200:
+                raise Exception(res)
+
+        return res
+
 if __name__ == "__main__":
     qrv2 = NewQRLogin()
-    qrv2.loginWithQrCode("android_lite")
+    qrv2.loginQrCodeWithWebPinCode("android_lite")
