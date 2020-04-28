@@ -1,5 +1,4 @@
 from newqr import NewQRLogin
-from linepy import LINE
 
 # HEADER must be same as config.py
 
@@ -11,4 +10,5 @@ header = input("Header: ")
 method = newqr.loginWithQrCode
 token, cert = newqr.parseLogin(method(header))
 
-client = LINE(token)
+print("Access Token: " + token)
+print("Certificate: " + cert)
