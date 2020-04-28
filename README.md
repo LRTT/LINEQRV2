@@ -6,8 +6,6 @@ Example
 ```python
 from newqr import NewQRLogin
 
-# HEADER must be same as config.py
-
 newqr = NewQRLogin()
 
 print("Headers: %s" % (", ".join(newqr.HEADERS)))
