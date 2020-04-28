@@ -1,3 +1,6 @@
+import requests
+import urllib.parse
+
 class NewQRLogin:
     API_URL = "https://api.lrtt.icu/secondaryQrCodeLogin.do"
     HEADERS = {
