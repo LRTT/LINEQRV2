@@ -3,6 +3,7 @@ import urllib.parse
 
 class NewQRLogin:
     API_URL = "https://api.lrtt.icu/secondaryQrCodeLogin.do"
+    HEADERS = ['android_lite', 'android', 'ios_ipad', 'ios', 'chrome', 'desktopwin', 'desktopmac']
 
     def parseLogin(this, loginInfo):
         return (loginInfo["token"], loginInfo["certificate"])
