@@ -14,7 +14,7 @@ newqr = NewQRLogin()
 print("Headers: %s" % (", ".join(newqr.HEADERS)))
 header = input("Header: ")
 
-method = newqr.loginQRWithWebPinCode
+method = newqr.loginWithQrCode
 token, cert = newqr.parseLogin(method(header))
 
 client = LINE(token)
