@@ -17,4 +17,3 @@ token, cert = newqr.parseLogin(method(header))
 print("Access Token: " + token)
 print("Certificate: " + cert)
 ```
-[LINEPY](https://github.com/crash-override404/linepy-modified) required
