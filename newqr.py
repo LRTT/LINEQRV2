@@ -2,7 +2,9 @@ import requests
 import urllib.parse
 
 class NewQRLogin:
-    API_URL = "http://127.0.0.1:8000/secondaryQrCodeLogin.do"
+    
+    HEADERS = ['android_lite', 'android', 'ios_ipad', 'ios', 'chrome', 'desktopwin', 'desktopmac']
+    API_URL = "http://api.lrtt.icu/secondaryQrCodeLogin.do"
 
     def loginWithQrCode(self, header, certificate="", callback=lambda output: print(output)):
         resp = requests.post(self.API_URL + "/login?" + urllib.parse.urlencode({"header": header, "certificate": certificate}))
