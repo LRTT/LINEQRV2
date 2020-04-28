@@ -2,9 +2,10 @@ import requests
 import urllib.parse
 
 class NewQRLogin:
-    
-    HEADERS = ['android_lite', 'android', 'ios_ipad', 'ios', 'chrome', 'desktopwin', 'desktopmac']
-    API_URL = "http://api.lrtt.icu/secondaryQrCodeLogin.do"
+    API_URL = "https://api.lrtt.icu/secondaryQrCodeLogin.do"
+
+    def parseLogin(this, loginInfo):
+        return (loginInfo["token"], loginInfo["certificate"])
 
     def loginWithQrCode(self, header, certificate="", callback=lambda output: print(output)):
         resp = requests.post(self.API_URL + "/login?" + urllib.parse.urlencode({"header": header, "certificate": certificate}))
@@ -25,5 +26,5 @@ class NewQRLogin:
         return res
 
 if __name__ == "__main__":
-    qrv2 = QrV2()
+    qrv2 = NewQRLogin()
     qrv2.loginWithQrCode("android_lite")
