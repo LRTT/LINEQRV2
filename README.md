@@ -5,18 +5,18 @@ Example
 ------------
 ```python
 from newqr import NewQRLogin
-from linepy import LINE
 
-# HEADER must be same as linepy/config.py
+# HEADER must be same as config.py
 
 newqr = NewQRLogin()
 
-# Available headers: ['android_lite', 'android', 'ios_ipad', 'ios', 'chrome', 'desktopwin', 'desktopmac']
+print("Headers: %s" % (", ".join(newqr.HEADERS)))
 header = input("Header: ")
 
 method = newqr.loginWithQrCode
 token, cert = newqr.parseLogin(method(header))
 
-client = LINE(token)
+print("Access Token: " + token)
+print("Certificate: " + cert)
 ```
 [LINEPY](https://github.com/crash-override404/linepy-modified) required
